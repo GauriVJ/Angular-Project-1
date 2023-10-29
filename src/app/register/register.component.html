@@ -1,135 +1,147 @@
 <div class="container" style="margin-top: 2%">
    <div>
-   <form [formGroup]="RegisterationForms">
-      <!-- 
+      <form [formGroup]="RegisterationForms">
+         <!-- 
    Date of Birth :<input type = "date" formControlName="dob"><br><br>
    Gender
    Confirm Password : <input type = "password" formControlName="Confirmpassword"><br><br>
   -->
 
 
-      <!-- Firstname starts -->
-      <div class="row">
-         <div class=" col mb-3">
-            <label>First name</label>
-            <input type="text" formControlName="fname" class="form-control" />
-            <div *ngIf="this.RegisterationForms.get('fname')?.touched">
-               <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['required']" class="text-danger">Please add
-                  first name </small>
-               <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['minlength']" class="text-danger">Please add
-                  valid first name </small>
-               <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['maxlength']" class="text-danger">Please add
-                  valid first name </small>
+         <!-- Firstname starts -->
+         <div class="row">
+            <div class=" col mb-3">
+               <label>First name</label>
+               <input type="text" formControlName="fname" class="form-control" />
+               <div *ngIf="this.RegisterationForms.get('fname')?.touched">
+                  <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['required']" class="text-danger">Please
+                     add
+                     first name </small>
+                  <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['minlength']" class="text-danger">Please
+                     add
+                     valid first name </small>
+                  <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['maxlength']" class="text-danger">Please
+                     add
+                     valid first name </small>
+               </div>
+            </div>
+            <!-- Firstname ends -->
+
+
+            <!-- Lastname -->
+            <div class=" col mb-3">
+               <label>Last name</label>
+               <input type="text" formControlName="lname" class="form-control" />
+               <div *ngIf="this.RegisterationForms.get('lname')?.touched">
+                  <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['required']" class="text-danger">Please
+                     add
+                     last name </small>
+                  <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['minlength']" class="text-danger">Please
+                     add
+                     valid last name </small>
+                  <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['maxlength']" class="text-danger">Please
+                     add
+                     valid last name </small>
+               </div>
             </div>
          </div>
-         <!-- Firstname ends -->
+         <!-- Lastname ends -->
 
 
-         <!-- Lastname -->
-         <div class=" col mb-3">
-            <label>Last name</label>
-            <input type="text" formControlName="lname" class="form-control" />
-            <div *ngIf="this.RegisterationForms.get('lname')?.touched">
-               <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['required']" class="text-danger">Please add
-                  last name </small>
-               <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['minlength']" class="text-danger">Please add
-                  valid last name </small>
-               <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['maxlength']" class="text-danger">Please add
-                  valid last name </small>
-            </div>
-         </div>
-      </div>
-      <!-- Lastname ends -->
-
-
-      <!-- DOB -->
-      <div class="mb-3">
-         <label>Date of Birth</label>
-         <input type="date" formControlName="dob" class="form-control" />
-         <div *ngIf="this.RegisterationForms.get('dob')?.touched">
-            <small *ngIf="this.RegisterationForms.get('dob')?.errors?.['invalid']" class="text-danger">Please
-               form is accessible only for 14 year old or more </small><br><br>
-         </div>
-      </div>
-      <!-- DOB -->
-
-
-      <!-- Gender starts  -->
-      <label> Gender </label><br><br>
-      <div class="mb-3">
-         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" value="male" id="male">
-            <label> Male </label><br>
-         </div>
-         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" value="female" id="female">
-            <label> Female </label><br>
-         </div>
-         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" value="other" id="other">
-            <label> Other </label><br>
-         </div>
-      </div>
-      <!-- Gender ends -->
-
-
-
-
-      <!-- Email -->
-      <div class="mb-3">
-         <label>Email address</label>
-         <input formControlName="email" type="email" class="form-control" />
-         <div *ngIf="this.RegisterationForms.get('email')?.touched">
-            <small *ngIf="this.RegisterationForms.get('email')?.errors?.['required']" class="text-danger">Please add
-               email id</small>
-            <small *ngIf="this.RegisterationForms.get('email')?.errors?.['email']" class="text-danger">Please add
-               valid
-               email id</small>
-         </div>
-      </div>
-      <!-- Email ends -->
-
-
-      <!-- Mobile number starts -->
-      <div class="row">
+         <!-- DOB -->
          <div class="mb-3">
-            <label>Mobile number</label>
-            <input type="text" formControlName="mobno" class="form-control">
-            <div *ngIf="this.RegisterationForms.get('mobno')?.touched">
-               <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['required']" class="text-danger">Please add
-                  mobile number</small>
-               <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['maxlength']" class="text-danger">Please add
-                  till max</small>
-               <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['minlength']" class="text-danger">Please add
-                  till min</small>
-               <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['pattern']" class="text-danger">Please add
-                  valid mobile number</small>
+            <label>Date of Birth</label>
+            <input type="date" formControlName="dob" class="form-control" />
+            <div *ngIf="this.RegisterationForms.get('dob')?.touched">
+               <small *ngIf="this.RegisterationForms.get('dob')?.errors?.['invalid']" class="text-danger">Please
+                  form is accessible only for 14 year old or more </small>
             </div>
          </div>
-      </div>
-      <!-- Mobile number ends -->
+         <!-- DOB -->
 
 
-      <!-- Password starts-->
-      <div class="row">
+         <!-- Gender starts  -->
+         <label> Gender </label><br>
+         <div class="options">
+            <div class="mb-3">
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="male" id="male">
+                  <label> Male </label><br>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="female" id="female">
+                  <label> Female </label><br>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="other" id="other">
+                  <label> Other </label><br>
+               </div>
+            </div>
+         </div>
+         <!-- Gender ends -->
+
+
+         <!-- Email -->
          <div class="mb-3">
-            <label>Password</label>
-            <input formControlName="password" type="text" class="form-control" />
-            <div *ngIf="this.RegisterationForms.get('password')?.touched">
-
-               <small *ngIf="this.RegisterationForms.get('password')?.errors?.['maxlength']" class="text-danger">Please
-                  enter a valid password which has max 16 characters </small>
-               <small *ngIf="this.RegisterationForms.get('password')?.errors?.['minlength']" class="text-danger">Please
-                  enter a valid password which has at least 8 characters </small>
-               <small *ngIf="this.RegisterationForms.get('password')?.errors?.['pattern']" class="text-danger">Please
-                  enter a valid password cotaining at least one lowercase char, uppercase char, digit and special
-                  character </small>
+            <label>Email address</label>
+            <input formControlName="email" type="email" class="form-control" />
+            <div *ngIf="this.RegisterationForms.get('email')?.touched">
+               <small *ngIf="this.RegisterationForms.get('email')?.errors?.['required']" class="text-danger">Please add
+                  email id</small>
+               <small *ngIf="this.RegisterationForms.get('email')?.errors?.['email']" class="text-danger">Please add
+                  valid
+                  email id</small>
             </div>
          </div>
-      </div>
-      <!-- Password ends -->
+         <!-- Email ends -->
 
 
-      <button (click)="register()" class="btn btn-primary">Register</button> 
+         <!-- Mobile number starts -->
+         <div class="row">
+            <div class="mb-3">
+               <label>Mobile number</label>
+               <input type="text" formControlName="mobno" class="form-control">
+               <div *ngIf="this.RegisterationForms.get('mobno')?.touched">
+                  <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['required']" class="text-danger">Please
+                     add
+                     mobile number</small>
+                  <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['maxlength']" class="text-danger">Please
+                     add
+                     till max</small>
+                  <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['minlength']" class="text-danger">Please
+                     add
+                     till min</small>
+                  <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['pattern']" class="text-danger">Please
+                     add
+                     valid mobile number</small>
+               </div>
+            </div>
+         </div>
+         <!-- Mobile number ends -->
 
-</form>
+
+         <!-- Password starts-->
+         <div class="row">
+            <div class="mb-3">
+               <label>Password</label>
+               <input formControlName="password" type="text" class="form-control" />
+               <div *ngIf="this.RegisterationForms.get('password')?.touched">
+
+                  <small *ngIf="this.RegisterationForms.get('password')?.errors?.['maxlength']"
+                     class="text-danger">Please
+                     enter a valid password which has max 16 characters </small>
+                  <small *ngIf="this.RegisterationForms.get('password')?.errors?.['minlength']"
+                     class="text-danger">Please
+                     enter a valid password which has at least 8 characters </small>
+                  <small *ngIf="this.RegisterationForms.get('password')?.errors?.['pattern']" class="text-danger">Please
+                     enter a valid password cotaining at least one lowercase char, uppercase char, digit and special
+                     character </small>
+               </div>
+            </div>
+         </div>
+         <!-- Password ends -->
+
+
+         <button (click)="register()" class="btn btn-primary">Register</button>
+
+      </form>

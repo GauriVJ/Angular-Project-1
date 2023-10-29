@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { Validator } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent implements OnInit {
   constructor(
 
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UserService
     
   ){}
 
@@ -45,14 +47,15 @@ export class RegisterComponent implements OnInit {
       dob:this.fb.control('',[Validators.required, this.ageValidator.bind(this)])
     })
   }
- 
-  
 
   register(){
-    console.log('this.RegisterationForms',this.RegisterationForms)
+    if(this.RegisterationForms.valid){
+    console.log('this.RegisterationForms',this.RegisterationForms.value)
+    this.userService.user = this.RegisterationForms.value;
+    this.router.navigate(['login']);
   }
 
 }
 
-
+}
 

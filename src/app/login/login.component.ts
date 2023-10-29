@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -11,11 +12,13 @@ import { Route, Router } from '@angular/router';
 export class LoginComponent implements OnInit{
  
   loginForms! : FormGroup;
+  loginSuccess =  true;
 
   constructor(
 
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userSercvice: UserService
     
   ){}
 
@@ -28,10 +31,14 @@ export class LoginComponent implements OnInit{
 
 
 login(){
-  console.log('this.loginForm.value',this.loginForms.valid)
 
+  if(this.userSercvice.user.email == this.loginForms.value.email && this.userSercvice.user.password == this.loginForms.value.password ){
+  console.log('this.loginForm.value',this.loginForms.valid)
   this.router.navigate(['dashboard'])
 }
-
+else{
+this.loginSuccess = false;
 }
 
+}
+}
