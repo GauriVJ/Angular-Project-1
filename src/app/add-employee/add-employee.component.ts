@@ -4,12 +4,12 @@ import { Route, Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  selector: 'app-add-employee',
+  templateUrl: './add-employee.component.html',
+  styleUrls: ['./add-employee.component.css']
 })
-export class DashboardComponent implements OnInit {
-  Dashform!: FormGroup;
+export class AddEmployeeComponent implements OnInit{
+  AddEmpform!: FormGroup;
   openform = false;
   showlist = true;
   showaddbutton = true;
@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.Dashform = this.fb.group({
+    this.AddEmpform = this.fb.group({
       empfname: this.fb.control('', [
         Validators.required,
         Validators.minLength(3),
@@ -40,29 +40,12 @@ export class DashboardComponent implements OnInit {
   }
 
   addemployee() {
-    
-    if (this.Dashform.valid) {
-      console.log('this.RegisterationForms', this.Dashform.value);
-      this.userService.employee.push(this.Dashform.value);
-    }
-    this.router.navigate(['add-employee']);
    
-  }
-  
+    if (this.AddEmpform.valid) {
+      console.log('this.RegisterationForms', this.AddEmpform.value);
+      this.userService.employee.push(this.AddEmpform.value);
+      this.router.navigate(['dashboard'])
+    }
+}
 
-  editemployee(index: number){
-    this.isEdit = true;
-    this.Currentindex = index;
-    this.userService.employee = this.userService.employee[index]
- }
-
- save(){
-  this.userService.employee[this.Currentindex] = this.userService.employee;
-   this.isEdit=false; 
- }
-
- remove(index : number){
-
- }
-  // editemployee() {}
 }
