@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
     RegisterComponent,
     DashboardComponent,
     AddEmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    DeleteEmployeeComponent
   ],
   imports: [
     BrowserModule,

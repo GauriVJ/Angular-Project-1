@@ -1,3 +1,30 @@
+ 
+<!-- To set focuses -->
+<script>
+    document.addEventListener("keypress", function(event) {
+      // Check if the pressed key is Enter (key code 13)
+      if (event.key === "Enter") {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+ 
+        // Get the currently focused element
+        const focusedElement = document.activeElement;
+ 
+        // Find the next input field based on the tabindex
+        const nextTabIndex = parseInt(focusedElement.tabIndex) + 1;
+        const nextInput = document.querySelector(`[tabindex="${nextTabIndex}"]`);
+ 
+        // If there is a next input field, focus on it
+        if (nextInput) {
+          nextInput.focus();
+        }
+      }
+    });
+  </script>
+ <!-- To set focuses -->
+
+
+
 <div class="container" style="margin-top: 5%">
 <form [formGroup]="AddEmpform">
 
@@ -5,7 +32,7 @@
     <div class="row">
         <div class="mb-3">
             <label>First name</label>
-            <input type="text" formControlName="empfname" class="form-control" />
+            <input type="text" formControlName="empfname" class="form-control" tabindex="1" autofocus/>
             <div *ngIf="this.AddEmpform.get('empfname')?.touched">
                 <small *ngIf="this.AddEmpform.get('empfname')?.errors?.['required']" class="text-danger">Please
                     add
@@ -24,7 +51,7 @@
         <!-- Lastname -->
         <div class=" col mb-3">
             <label>Last name</label>
-            <input type="text" formControlName="emplname" class="form-control" />
+            <input type="text" formControlName="emplname" class="form-control" tabindex="2"/>
             <div *ngIf="this.AddEmpform.get('emplname')?.touched">
                 <small *ngIf="this.AddEmpform.get('emplname')?.errors?.['required']" class="text-danger">Please
                     add
@@ -44,7 +71,7 @@
     <!-- Employee salary starts -->
     <div class=" col mb-3">
         <label>Salary</label>
-        <input type="text" formControlName="empsalary" class="form-control" />
+        <input type="text" formControlName="empsalary" class="form-control" tabindex="3"/>
         <div *ngIf="this.AddEmpform.get('empsalary')?.touched">
             <small *ngIf="this.AddEmpform.get('empsalary')?.errors?.['required']" class="text-danger">Please
                 add
@@ -55,7 +82,7 @@
      <!-- Email -->
      <div class="mb-3">
         <label>Email address</label>
-        <input formControlName="empmail" type="email" class="form-control" />
+        <input formControlName="empmail" type="email" class="form-control" tabindex="4"/>
         <div *ngIf="this.AddEmpform.get('empmail')?.touched">
            <small *ngIf="this.AddEmpform.get('empmail')?.errors?.['required']" class="text-danger">Please add
               email id</small>
@@ -66,7 +93,7 @@
      </div>
      <!-- Email ends -->
 
-     <button  class="btn btn-primary" (click)="addemployee()"> Add to list </button>
-
+     <button  class="btn btn-primary" (click)="addemployee()"> Add to list </button>&nbsp;&nbsp;
+     <button  class="btn btn-primary" (click)="cancel()"> Cancel</button>
 
 </div>

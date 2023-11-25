@@ -9,6 +9,10 @@ import { UserService } from '../user.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit{
+cancel() {
+  this.router.navigate(['dashboard'])
+}
+
   AddEmpform!: FormGroup;
   openform = false;
   showlist = true;
@@ -37,6 +41,8 @@ export class AddEmployeeComponent implements OnInit{
       empsalary: this.fb.control('', Validators.required),
       empmail: this.fb.control(''),
     });
+
+   
   }
 
   addemployee() {
@@ -46,6 +52,7 @@ export class AddEmployeeComponent implements OnInit{
       this.userService.employee.push(this.AddEmpform.value);
       this.router.navigate(['dashboard'])
     }
+    
 }
 
 }

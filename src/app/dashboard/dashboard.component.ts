@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   openform = false;
   showlist = true;
   showaddbutton = true;
-  isEdit = false;
+  isEdit = true;
   Currentindex = 0;
 
   constructor(
@@ -46,14 +46,15 @@ export class DashboardComponent implements OnInit {
       this.userService.employee.push(this.Dashform.value);
     }
     this.router.navigate(['add-employee']);
-   
+    this.isEdit = false;
   }
   
 
-  editemployee(index: number){
+  editemp(index: number){
     this.isEdit = true;
-    this.Currentindex = index;
-    this.userService.employee = this.userService.employee[index]
+    this.userService.employee.splice(index,1);
+    this.router.navigate(['add-employee']);
+   // this.router.navigate(['edit-employee']);
  }
 
  save(){
@@ -61,8 +62,9 @@ export class DashboardComponent implements OnInit {
    this.isEdit=false; 
  }
 
- remove(index : number){
-
+ deletemp(index : number){
+  this.userService.employee.splice(index,1);
+  this.router.navigate(['dashboard']);
  }
-  // editemployee() {}
+  
 }

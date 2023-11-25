@@ -8,11 +8,38 @@
   -->
 
 
+  
+<!-- To set focuses -->
+<script>
+   document.addEventListener("keypress", function(event) {
+     // Check if the pressed key is Enter (key code 13)
+     if (event.key === "Enter") {
+       // Prevent the default form submission behavior
+       event.preventDefault();
+
+       // Get the currently focused element
+       const focusedElement = document.activeElement;
+
+       // Find the next input field based on the tabindex
+       const nextTabIndex = parseInt(focusedElement.tabIndex) + 1;
+       const nextInput = document.querySelector(`[tabindex="${nextTabIndex}"]`);
+
+       // If there is a next input field, focus on it
+       if (nextInput) {
+         nextInput.focus();
+       }
+     }
+   });
+ </script>
+<!-- To set focuses -->
+
+
+
          <!-- Firstname starts -->
          <div class="row">
             <div class=" col mb-3">
                <label>First name</label>
-               <input type="text" formControlName="fname" class="form-control" />
+               <input type="text" formControlName="fname" class="form-control" tabIndex="1" autofocus/>
                <div *ngIf="this.RegisterationForms.get('fname')?.touched">
                   <small *ngIf="this.RegisterationForms.get('fname')?.errors?.['required']" class="text-danger">Please
                      add
@@ -31,7 +58,7 @@
             <!-- Lastname -->
             <div class=" col mb-3">
                <label>Last name</label>
-               <input type="text" formControlName="lname" class="form-control" />
+               <input type="text" formControlName="lname" class="form-control" tabIndex="2"/>
                <div *ngIf="this.RegisterationForms.get('lname')?.touched">
                   <small *ngIf="this.RegisterationForms.get('lname')?.errors?.['required']" class="text-danger">Please
                      add
@@ -51,7 +78,7 @@
          <!-- DOB -->
          <div class="mb-3">
             <label>Date of Birth</label>
-            <input type="date" formControlName="dob" class="form-control" />
+            <input type="date" formControlName="dob" class="form-control" tabIndex="3" />
             <div *ngIf="this.RegisterationForms.get('dob')?.touched">
                <small *ngIf="this.RegisterationForms.get('dob')?.errors?.['invalid']" class="text-danger">Please
                   form is accessible only for 14 year old or more </small>
@@ -84,7 +111,7 @@
          <!-- Email -->
          <div class="mb-3">
             <label>Email address</label>
-            <input formControlName="email" type="email" class="form-control" />
+            <input formControlName="email" type="email" class="form-control" tabIndex="4"/>
             <div *ngIf="this.RegisterationForms.get('email')?.touched">
                <small *ngIf="this.RegisterationForms.get('email')?.errors?.['required']" class="text-danger">Please add
                   email id</small>
@@ -100,7 +127,7 @@
          <div class="row">
             <div class="mb-3">
                <label>Mobile number</label>
-               <input type="text" formControlName="mobno" class="form-control">
+               <input type="text" formControlName="mobno" class="form-control" tabIndex="5">
                <div *ngIf="this.RegisterationForms.get('mobno')?.touched">
                   <small *ngIf="this.RegisterationForms.get('mobno')?.errors?.['required']" class="text-danger">Please
                      add
@@ -124,7 +151,7 @@
          <div class="row">
             <div class="mb-3">
                <label>Password</label>
-               <input formControlName="password" type="text" class="form-control" />
+               <input formControlName="password" type="text" class="form-control" tabIndex="6"/>
                <div *ngIf="this.RegisterationForms.get('password')?.touched">
 
                   <small *ngIf="this.RegisterationForms.get('password')?.errors?.['maxlength']"
